@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucky Spin — 命運大轉盤</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🎡 Lucky Spin</h1>
+    <p>命運大轉盤 — 讓轉盤替你做決定</p>
+  </header>
+
+  <main class="layout">
+    <section class="card panel" aria-labelledby="panelTitle">
+      <h2 id="panelTitle">抽籤選項 <span id="countBadge" class="badge"></span></h2>
+      <div class="add-row">
+        <input id="itemInput" type="text" placeholder="輸入選項（最多 20 字）" autocomplete="off" aria-label="新增選項">
+        <button id="addBtn" class="btn btn-primary" type="button">新增</button>
+      </div>
+      <p id="formMsg" class="msg" role="alert"></p>
+      <ul id="itemList" class="item-list"></ul>
+      <button id="resetBtn" class="btn btn-ghost" type="button">恢復預設選項</button>
+    </section>
+
+    <section class="card wheel-card" aria-label="命運轉盤">
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="600" height="600" role="img" aria-label="抽籤轉盤"></canvas>
+      </div>
+      <button id="spinBtn" class="btn btn-spin" type="button">開始旋轉</button>
+    </section>
+
+    <section class="card history" aria-labelledby="historyTitle">
+      <div class="history-head">
+        <h2 id="historyTitle">最近抽籤紀錄</h2>
+        <button id="clearHistoryBtn" class="btn btn-ghost" type="button">清除紀錄</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay" hidden>
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalResult">
+      <h2 id="modalTitle">命運揭曉！</h2>
+      <p class="modal-sub">你抽中了</p>
+      <p id="modalResult" class="modal-result"></p>
+      <button id="okBtn" class="btn btn-primary" type="button">確定</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
